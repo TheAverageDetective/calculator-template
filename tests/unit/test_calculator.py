@@ -3,7 +3,7 @@ Unit Tests for Calculator
 Students start with 2 passing tests, then add more
 """
 import pytest
-from src.calculator import add, divide, subtract
+from src.calculator import add, divide, multiply, subtract
 
 class TestBasicOperations:
     """Test basic arithmetic operations"""
@@ -33,4 +33,35 @@ class TestMultiplyDivideWithValidation:
         with pytest.raises(TypeError, match="Division requires numeric inputs"):
             divide("10", 2)
 
-# TODO: Students will add TestMultiplyDivide class
+class TestMultiplyDivide:
+    """Test multiplication and division operations."""
+    
+    def test_multiply_positive_numbers(self):
+        """Test multiplying positive numbers."""
+        assert multiply(2, 3) == 6
+        assert multiply(10, 15) == 150
+    
+    def test_multiply_with_zero(self):
+        """Test multiplying by zero."""
+        assert multiply(0, 5) == 0
+        assert multiply(7, 0) == 0
+    
+    def test_multiply_negative_numbers(self):
+        """Test multiplying negative numbers."""
+        assert multiply(-2, 3) == -6
+        assert multiply(-4, -5) == 20
+    
+    def test_divide_positive_numbers(self):
+        """Test dividing positive numbers."""
+        assert divide(6, 3) == 2
+        assert divide(15, 5) == 3
+    
+    def test_divide_negative_numbers(self):
+        """Test dividing negative numbers."""
+        assert divide(-6, 3) == -2
+        assert divide(-10, -2) == 5
+    
+    def test_divide_by_zero(self):
+        """Test divide rejects division by zero."""
+        with pytest.raises(ValueError, match="division by zero is undefined"):
+            divide(5, 0)
