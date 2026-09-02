@@ -66,15 +66,15 @@ class TestMultiplyDivide:
         with pytest.raises(ValueError, match="division by zero is undefined"):
             divide(5, 0)
 
-def test_power_input_validation(self):
-        """Test power rejects non-numeric inputs."""
-        with pytest.raises(TypeError, match="Both arguments must be numbers"):
-            power("2", 3)
-        with pytest.raises(TypeError, match="Both arguments must be numbers"):
-            power(2, "3")
+    def test_power_input_validation(self):
+            """Test power rejects non-numeric inputs."""
+            with pytest.raises(TypeError, match="Both arguments must be numbers"):
+                power("2", 3)
+            with pytest.raises(TypeError, match="Both arguments must be numbers"):
+                power(2, "3")
 
-def test_sqrt_input_validation(self):
-    """Test sqrt rejects non-numeric inputs."""
-    with pytest.raises(TypeError, match="Input must be a number"):
-        sqrt("16")
+    def test_sqrt_input_validation(self):
+        """Test sqrt rejects non-numeric inputs."""
+        with pytest.raises(TypeError, match="Input must be a number"):
+            sqrt("16")
 
